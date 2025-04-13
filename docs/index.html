@@ -1,1 +1,112 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>张立兴的个人主页</title>
+    <script src="https://cdn.jsdelivr.net/npm/vue@2"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+    <style>
+        html, body { margin: 0; padding: 0; font-family: 'Arial', sans-serif; color: #fff; scroll-behavior: smooth; }
+        .hero { height: 100vh; background: url('photo2.jpg') center/cover fixed; display: flex; justify-content: center; align-items: center; flex-direction: column; text-align: center; }
+        .hero h1 { font-size: 50px; margin-bottom: 10px; }
+        .hero p { font-size: 20px; margin-bottom: 30px; }
+        .scroll-btn { padding: 10px 20px; background: #1abc9c; color: #fff; border: none; cursor: pointer; border-radius: 5px; font-size: 16px; }
+        .nav { position: sticky; top: 0; background: rgba(0, 0, 0, 0.8); padding: 10px; text-align: center; z-index: 1000; }
+        .nav a { color: #fff; margin: 0 15px; text-decoration: none; font-weight: bold; }
+        .nav a:hover { color: #1abc9c; }
+        .main-content { background: url('photo3.jpg') center/cover fixed; }
+        .overlay { background-color: rgba(0, 0, 0, 0.7); }
+        .container { width: 80%; margin: auto; padding: 40px 20px; }
+        .section { margin-bottom: 60px; padding-top: 60px; }
+        h2 { border-bottom: 2px solid #1abc9c; padding-bottom: 5px; color: #1abc9c; }
+        .item { margin: 15px 0; }
+        .skill-tag { display: inline-block; background: #1abc9c; padding: 5px 10px; margin: 5px; border-radius: 5px; }
+        .profile-pic { width: 180px; height: 180px; border-radius: 50%; object-fit: cover; margin-bottom: 20px; }
+        footer { text-align: center; padding: 20px; background-color: rgba(0, 0, 0, 0.8); }
+        .social-icons a { color: #fff; margin: 0 10px; font-size: 20px; }
+        .social-icons a:hover { color: #1abc9c; }
+    </style>
+</head>
+<body>
+<div class="hero">
+    <h1>欢迎来到张立兴的个人主页</h1>
+    <p>AI 算法工程师 | 探索数据与智能的无限可能</p>
+    <button class="scroll-btn" onclick="document.getElementById('main-content').scrollIntoView({ behavior: 'smooth' });">了解更多</button>
+</div>
+<div id="main-content" class="main-content">
+    <div class="nav">
+        <a href="#about">关于我</a>
+        <a href="#education">教育经历</a>
+        <a href="#internships">实习经历</a>
+        <a href="#researches">研究经历</a>
+        <a href="#skills">专业技能</a>
+        <a href="#awards">荣誉奖项</a>
+    </div>
+    <div id="app" class="overlay">
+        <div class="container section" id="about">
+            <img src="photo.png" alt="张立兴的照片" class="profile-pic">
+            <h1>张立兴</h1>
+            <p>电话：18242994583 | 邮箱：1213269775@qq.com</p>
+            <p>在读 AI 算法工程师 | 北京 | 期望薪资：15k</p>
+        </div>
 
+        <!-- 其他板块内容保持不变 -->
+        <div class="container section" id="education">
+            <h2>教育经历</h2>
+            <p>{{education.school}} | {{education.major}} | GPA: {{education.gpa}}</p>
+            <p>核心课程: <span v-for="course in education.courses" class="skill-tag">{{course}}</span></p>
+        </div>
+
+        <div class="container section" id="internships">
+            <h2>实习经历</h2>
+            <div v-for="job in internships" class="item">
+                <strong>{{job.title}}</strong> ({{job.period}})
+                <p>{{job.desc}}</p>
+            </div>
+        </div>
+
+        <div class="container section" id="researches">
+            <h2>研究经历</h2>
+            <div v-for="research in researches" class="item">
+                <strong>{{research.title}}</strong> ({{research.period}})
+                <p>{{research.desc}}</p>
+            </div>
+        </div>
+
+        <div class="container section" id="skills">
+            <h2>专业技能</h2>
+            <p><span v-for="skill in skills" class="skill-tag">{{skill}}</span></p>
+        </div>
+
+        <div class="container section" id="awards">
+            <h2>荣誉奖项</h2>
+            <ul>
+                <li v-for="award in awards">{{award}}</li>
+            </ul>
+        </div>
+
+        <footer>
+            <div class="social-icons">
+                <a href="#"><i class="fab fa-github"></i></a>
+                <a href="#"><i class="fab fa-linkedin"></i></a>
+                <a href="mailto:1213269775@qq.com"><i class="fas fa-envelope"></i></a>
+            </div>
+            <p>© 2024 张立兴. All rights reserved.</p>
+        </footer>
+    </div>
+</div>
+<script>
+new Vue({
+    el: '#app',
+    data: {
+        education: { school: '辽宁工程技术大学', major: '人工智能本科', gpa: '3.16/4.5', courses: ['机器学习', '数据结构与算法', 'Python 数据分析', '数据库原理', '人工智能', '操作系统'] },
+        internships: [{ title: '数据分析师 | 教育科技多维度数据分析与业务优化项目', period: '2024.07-2024.08', desc: '数据清洗与分析，学生画像聚类分析，营销策略优化与校园招聘效率提升。' }, { title: 'AI 算法工程师 | 基于AI的职业教育智能推荐系统', period: '2025.01-2025.02', desc: '智能匹配推荐算法开发与部署，职业能力评估模型设计，支持数字化校园招聘。' }],
+        researches: [{ title: '基于因子分析对数据驱动的水下导航适配区研究', period: '2023.11-2024.12', desc: '因子分析建模与区域适应度评估，MATLAB 数据处理与三维可视化。' }, { title: '网球比赛动量研究', period: '2024.02-2025.02', desc: 'LightGBM算法与遗传算法优化模型，实时表现预测与策略优化。' }],
+        skills: ['Python', 'SQL', '机器学习', '深度学习', '数据分析', 'TensorFlow', 'PyTorch', 'Hadoop', 'Spark'],
+        awards: ['美国大学生数学建模竞赛H奖（全球前30%）', '华数杯全国数学建模竞赛三等奖（全国前15%）', '“大唐杯”5G技术大赛省二等奖（省前10%）', '辽宁省小程序开发大赛三等奖', '大学生创新创业训练国家级立项', '华数杯国际数学建模大赛M奖', '校级二等奖学金', '英语四六级通过']
+    }
+});
+</script>
+</body>
+</html>
