@@ -7,25 +7,130 @@
     <script src="https://cdn.jsdelivr.net/npm/vue@2"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
     <style>
-        html, body { margin: 0; padding: 0; font-family: 'Arial', sans-serif; color: #fff; scroll-behavior: smooth; }
-        .hero { height: 100vh; background: url('photo2.jpg') center/cover fixed; display: flex; justify-content: center; align-items: center; flex-direction: column; text-align: center; }
-        .hero h1 { font-size: 50px; margin-bottom: 10px; }
-        .hero p { font-size: 20px; margin-bottom: 30px; }
-        .scroll-btn { padding: 10px 20px; background: #1abc9c; color: #fff; border: none; cursor: pointer; border-radius: 5px; font-size: 16px; }
-        .nav { position: sticky; top: 0; background: rgba(0, 0, 0, 0.8); padding: 10px; text-align: center; z-index: 1000; }
-        .nav a { color: #fff; margin: 0 15px; text-decoration: none; font-weight: bold; }
-        .nav a:hover { color: #1abc9c; }
-        .main-content { background: url('photo3.jpg') center/cover fixed; }
-        .overlay { background-color: rgba(0, 0, 0, 0.7); }
-        .container { width: 80%; margin: auto; padding: 40px 20px; }
-        .section { margin-bottom: 60px; padding-top: 60px; }
-        h2 { border-bottom: 2px solid #1abc9c; padding-bottom: 5px; color: #1abc9c; }
-        .item { margin: 15px 0; }
-        .skill-tag { display: inline-block; background: #1abc9c; padding: 5px 10px; margin: 5px; border-radius: 5px; }
-        .profile-pic { width: 180px; height: 180px; border-radius: 50%; object-fit: cover; margin-bottom: 20px; }
-        footer { text-align: center; padding: 20px; background-color: rgba(0, 0, 0, 0.8); }
-        .social-icons a { color: #fff; margin: 0 10px; font-size: 20px; }
-        .social-icons a:hover { color: #1abc9c; }
+        html, body {
+            margin: 0;
+            padding: 0;
+            font-family: 'Arial', sans-serif;
+            color: #fff;
+            scroll-behavior: smooth;
+        }
+        .hero {
+            height: 100vh;
+            background: url('photo2.jpg') no-repeat center center;
+            background-size: cover;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+            text-align: center;
+        }
+        .hero h1 {
+            font-size: 50px;
+            margin-bottom: 10px;
+        }
+        .hero p {
+            font-size: 20px;
+            margin-bottom: 30px;
+        }
+        .scroll-btn {
+            padding: 10px 20px;
+            background: #1abc9c;
+            color: #fff;
+            border: none;
+            cursor: pointer;
+            border-radius: 5px;
+            font-size: 16px;
+        }
+        .nav {
+            position: sticky;
+            top: 0;
+            background: rgba(0, 0, 0, 0.8);
+            padding: 10px;
+            text-align: center;
+            z-index: 1000;
+        }
+        .nav a {
+            color: #fff;
+            margin: 0 15px;
+            text-decoration: none;
+            font-weight: bold;
+        }
+        .nav a:hover {
+            color: #1abc9c;
+        }
+        .main-content {
+            background: url('photo3.jpg') no-repeat center center;
+            background-size: cover;
+        }
+        .overlay {
+            background-color: rgba(0, 0, 0, 0.7);
+        }
+        .container {
+            width: 90%;
+            max-width: 1000px;
+            margin: auto;
+            padding: 40px 20px;
+        }
+        .section {
+            margin-bottom: 60px;
+            padding-top: 60px;
+        }
+        h2 {
+            border-bottom: 2px solid #1abc9c;
+            padding-bottom: 5px;
+            color: #1abc9c;
+        }
+        .item {
+            margin: 15px 0;
+        }
+        .skill-tag {
+            display: inline-block;
+            background: #1abc9c;
+            padding: 5px 10px;
+            margin: 5px;
+            border-radius: 5px;
+        }
+        .profile-pic {
+            width: 180px;
+            height: 180px;
+            border-radius: 50%;
+            object-fit: cover;
+            margin-bottom: 20px;
+        }
+        footer {
+            text-align: center;
+            padding: 20px;
+            background-color: rgba(0, 0, 0, 0.8);
+        }
+        .social-icons a {
+            color: #fff;
+            margin: 0 10px;
+            font-size: 20px;
+        }
+        .social-icons a:hover {
+            color: #1abc9c;
+        }
+        @media screen and (max-width: 768px) {
+            .hero {
+                background-attachment: scroll;
+            }
+            .main-content {
+                background-attachment: scroll;
+            }
+            .hero h1 {
+                font-size: 32px;
+            }
+            .hero p {
+                font-size: 16px;
+            }
+            .scroll-btn {
+                font-size: 14px;
+            }
+            .nav a {
+                margin: 0 8px;
+                font-size: 14px;
+            }
+        }
     </style>
 </head>
 <body>
@@ -48,10 +153,8 @@
             <img src="photo.png" alt="张立兴的照片" class="profile-pic">
             <h1>张立兴</h1>
             <p>电话：18242994583 | 邮箱：1213269775@qq.com</p>
-           
         </div>
 
-        <!-- 其他板块内容保持不变 -->
         <div class="container section" id="education">
             <h2>教育经历</h2>
             <p>{{education.school}} | {{education.major}} | GPA: {{education.gpa}}</p>
@@ -92,7 +195,7 @@
                 <a href="#"><i class="fab fa-linkedin"></i></a>
                 <a href="mailto:1213269775@qq.com"><i class="fas fa-envelope"></i></a>
             </div>
-            <p>© 2024 张立兴. All rights reserved.</p>
+            <p>© 2025 张立兴. All rights reserved.</p>
         </footer>
     </div>
 </div>
@@ -108,5 +211,3 @@ new Vue({
     }
 });
 </script>
-</body>
-</html>
