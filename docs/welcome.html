@@ -1,38 +1,137 @@
 <!DOCTYPE html>
-<html lang="zh">
+<html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Lixing Zhang's Homepage</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Lixing Zhang · Personal Website</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" />
   <style>
     body {
       margin: 0;
-      padding: 0;
-      background: url('photo2.jpg') center/cover no-repeat fixed;
-      font-family: Arial, sans-serif;
+      font-family: 'Arial', sans-serif;
+      background: url('photo3.jpg') no-repeat center center fixed;
+      background-size: cover;
       color: #fff;
-      text-align: center;
-      height: 100vh;
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
-      align-items: center;
+      scroll-behavior: smooth;
     }
-    h1 { font-size: 48px; margin-bottom: 10px; }
-    p { font-size: 20px; margin-bottom: 30px; }
-    a.button {
-      background: #1abc9c;
-      color: white;
-      padding: 12px 24px;
+    .nav {
+      background: rgba(0, 0, 0, 0.85);
+      padding: 10px;
+      text-align: center;
+      position: fixed;
+      width: 100%;
+      top: 0;
+      z-index: 1000;
+    }
+    .nav a {
+      color: #fff;
       text-decoration: none;
-      font-size: 18px;
+      margin: 0 15px;
+      font-weight: bold;
+    }
+    .nav a:hover {
+      color: #1abc9c;
+    }
+    section {
+      max-width: 900px;
+      margin: 60px auto;
+      padding: 30px;
+      border-radius: 10px;
+    }
+    img.profile {
+      width: 150px;
+      border-radius: 50%;
+      margin-bottom: 20px;
+    }
+    .section-title {
+      border-bottom: 2px solid #1abc9c;
+      margin-bottom: 15px;
+      padding-bottom: 5px;
+    }
+    ul {
+      padding-left: 20px;
+    }
+    a.button-link {
+      display: inline-block;
+      margin-top: 15px;
+      padding: 10px 18px;
       border-radius: 6px;
+      background-color: #1abc9c;
+      color: #fff;
+      text-decoration: none;
     }
   </style>
 </head>
 <body>
-  <h1>Welcome to Lixing Zhang's Homepage</h1>
-  <p>AI | DataScience · Intelligent · Explore</p>
-  <a class="button" href="index.html">Enter my Homepage</a>
+  <div class="nav">
+    <a href="#about">About Me</a>
+    <a href="#education">Education</a>
+    <a href="#internships">Internship Experience</a>
+    <a href="#researches">Research Experience</a>
+    <a href="#skills">Skills</a>
+    <a href="#awards">Awards & Honors</a>
+  </div>
+
+  <section id="about" style="background: rgba(0, 0, 0, 0.6);">
+    <div style="text-align: center;">
+      <img class="profile" src="photo.png" alt="Portrait">
+      <h2 class="section-title">About Me</h2>
+    </div>
+    <p>Hello! I am Lixing Zhang, currently pursuing my Bachelor's degree in Artificial Intelligence at Liaoning Technical University.</p>
+    <p>I am passionate about integrating AI with real-world problems, especially in data modeling and intelligent algorithm development. Whether it's understanding complex problems or building end-to-end solutions from scratch, I always maintain a rigorous, efficient, and proactive approach.</p>
+    <p>My research interests include Machine Learning, Deep Learning, Recommendation Systems, and Behavioral Data Mining. Through projects, internships, and competitions, I have gained rich hands-on experience.</p>
+    <p>I possess strong programming skills and effective communication abilities, which enable me to take on key responsibilities in a multi-disciplinary environment.</p>
+    <p>📞 18242994583 ｜ ✉️ 1213269775@qq.com</p>
+    <a class="button-link" href="https://github.com/lixing770?tab=repositories" target="_blank">View My GitHub</a>
+    <br>
+   <!--- <a class="button-link" href="zhanglixing-resume.pdf" target="_blank">Download My Resume (PDF)</a>-->
+  </section>
+
+  <section id="education" style="background: rgba(0, 0, 0, 0.6);">
+    <h2 class="section-title">Education</h2>
+    <ul>
+      <li>Liaoning Technical University | B.S. in Artificial Intelligence (2021 - Present)</li>
+      <li>Key Courses: Machine Learning, Data Structures & Algorithms, Database Systems, Python Data Analysis, Artificial Intelligence, Operating Systems, etc.</li>
+    </ul>
+  </section>
+
+  <section id="internships" style="background: rgba(0, 0, 0, 0.6);">
+    <h2 class="section-title">Internship Experience</h2>
+    <ul>
+      <li><strong>Educational Technology Data Analysis Internship (2024.07-2024.08)</strong>: Participated in user behavior data modeling for an educational platform, including data cleaning, feature engineering, and clustering analysis. Built a conversion rate prediction model using Pandas, Scikit-learn, Tableau, and SQL, which led to a 23% increase in conversion rate.</li>
+      <li><strong>AI Recommendation System Algorithm Internship (2025.01-2025.02)</strong>: Led the development of a career ability assessment and job matching recommendation algorithm, utilizing NLP to analyze resume keywords, constructing job vectors, and training the matching model using XGBoost with 88% accuracy. Part of the project is open-sourced on GitHub (see <a href='https://github.com/lixing770?tab=repositories' target='_blank'>GitHub Project</a>).</li>
+    </ul>
+  </section>
+
+  <section id="researches" style="background: rgba(0, 0, 0, 0.6);">
+    <h2 class="section-title">Research Experience</h2>
+    <ul>
+      <li><strong>Factor Analysis of Underwater Navigation Adaptation Areas (2023-2024)</strong>: Built a factor scoring model based on Principal Component Analysis (PCA) to rank the suitability of 16 underwater areas for intelligent navigation strategies.</li>
+      <li><strong>Tennis Match Momentum Prediction Model</strong>: Developed a model based on momentum features and real-time match data, utilizing LightGBM and optimizing the model with Genetic Algorithms. The model achieved R² = 0.894.</li>
+      <li><strong>Behavioral Analysis of College Students' Learning Patterns</strong>: Applied time-series modeling and association rule mining to explore the impact of learning habits on academic performance, proposing a recommendation strategy for personalized learning.</li>
+    </ul>
+  </section>
+
+  <section id="skills" style="background: rgba(0, 0, 0, 0.6);">
+    <h2 class="section-title">Skills</h2>
+    <ul>
+      <li>Programming Languages: Python, SQL</li>
+      <li>Frameworks: TensorFlow, PyTorch, LightGBM</li>
+      <li>Tools & Platforms: Hadoop, Spark, Git, Tableau, MySQL</li>
+      <li>Areas of Expertise: Machine Learning, Deep Learning, Recommendation Systems, Factor Modeling, Data Visualization</li>
+    </ul>
+  </section>
+
+  <section id="awards" style="background: rgba(0, 0, 0, 0.6);">
+    <h2 class="section-title">Awards & Honors</h2>
+    <ul>
+      <li>Mathematical Contest in Modeling - Honorable Mention (2024)</li>
+      <li>Huashu Cup National Mathematical Modeling Competition - Third Prize (2023)</li>
+      <li>Datang Cup 5G Technology Competition - Provincial Second Prize (2023)</li>
+      <li>Liaoning Province Mini Program Development Competition - Third Prize (2023)</li>
+      <li>National Innovation and Entrepreneurship Training Program for College Students</li>
+      <li>College English Test Band 4 and Band 6 Certificates, Second-Class Scholarship</li>
+    </ul>
+  </section>
 </body>
 </html>
